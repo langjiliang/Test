@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block ext_css %}
+    <link rel="stylesheet" href="{% static 'lang/register_login/css/register.css' %}">
+{% endblock %}
+
+{% block ext_js %}
+    <script type="text/javascript" src="{% static 'lang/register_login/js/register.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="box">
+
+        {#        注册头部#}
+        <div class="register_header" style="line-height: 4rem;text-align: center">
+            <span style="color: orangered;font-size: 0.8rem">欢&nbsp;迎&nbsp;注&nbsp;册</span>
+        </div>
+        <br>
+        {#        注册页面#}
+        <div class="register">
+
+            <form method="post" action="{% url 'lang:register' %}"  enctype="multipart/form-data" onsubmit="return check()">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">姓名</label>
+                    <input type="text" name="username" class="form-control input-lg" id="name" placeholder="请输入姓名">
+
+                    <span id="is_used"></span>
+
+                </div>
+                <div class="form-group">
+                    <label for="email">邮箱</label>
+                    <input type="password" name="useremail" class="form-control input-lg" id="email"
+                           placeholder="请输入邮箱">
+                    <span id="email_is_used"></span>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" name="userpassword" class="form-control input-lg" id="password"
+                           placeholder="请输入六位数密码">
+                    <span id="password_is_six"></span>
+
+                </div>
+                <div class="form-group">
+                    <label for="passwordagain">密码</label>
+                    <input type="password" class="form-control input-lg" id="passwordagain" placeholder="请再次输入密码">
+                    <span id="passwordagain_is_same"></span>
+
+                </div>
+                <br>
+
+                <button   id="submit_able" type="submit" class="btn btn-default center-block btn-lg">&nbsp;&nbsp;注&nbsp;&nbsp;&nbsp;册&nbsp;&nbsp;</button>
+            </form>
+
+        </div>
+    </div>
+
+
+{% endblock %}

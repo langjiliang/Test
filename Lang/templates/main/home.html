@@ -1,0 +1,266 @@
+{% extends 'base_main.html' %}
+
+{% load static %}
+
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'lang/main/css/home.css' %}">
+{% endblock %}
+
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/swiper.jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lang/main/js/home.js' %}"></script>
+{% endblock %}
+
+
+{% block header %}
+    {{ block.super }}
+    <header>
+        <div style="display: inline;line-height: 0.4rem;width: 20%;top: 0.4rem;margin: auto;color: orangered;font-size: large">
+            {#            <img src="{% static 'img/1.png' %}">#}
+
+            Welcome!<br>
+
+        </div>
+        <form method="post" action="{% url 'lang:search' %}">
+            {% csrf_token %}
+            <div class="row">
+                <div style="top: 0.4rem;display: flex" class="input-group col-xs-11 col-md-11 col-md-offset-0 col-xs-offset-0">
+                    <input type="text" name="goods_info" id="goods_info" class="form-control" placeholder="搜索" aria-describedby="basic-addon2">
+                    <input type="submit" style="width: 1.2rem" class="input-group-addon" id="basic-addon2" value="搜索">
+                </div>
+            </div>
+        </form>
+
+    </header>
+{% endblock %}
+
+{% block content %}
+    <div style="height: 1.5rem;width: 100%"></div>
+    <div class="swiper-container" id="topSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="{% static 'img/lunbo/1.jpg' %}">
+            </div>
+            <div class="swiper-slide">
+                <img src="{% static 'img/lunbo/2.jpg' %}">
+            </div>
+            <div class="swiper-slide">
+                <img src="{% static 'img/lunbo/3.jpg' %}">
+            </div>
+            <div class="swiper-slide">
+                <img src="{% static 'img/lunbo/4.jpg' %}">
+            </div>
+            <div class="swiper-slide">
+                <img src="{% static 'img/lunbo/5.jpg' %}">
+            </div>
+            <div class="swiper-slide">
+                <img src="{% static 'img/lunbo/6.jpg' %}">
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    {#    轮播图下导航#}
+    <div class="topMenu">
+        <nav>
+            <ul>
+
+                <li>
+                    <a href="{% url 'lang:market' %}">
+                        <img src="{% static 'img/home/home_first/navsmall.jpg' %}"><br>
+                        <span>商品分类</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="{% static 'img/home/home_first/huismall.jpg' %}"><br>
+                        <span>大优惠</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="{% static 'img/home/home_first/mansmall.jpg' %}"><br>
+                        <span>个人中心</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="{% static 'img/home/home_first/moneysmall.jpg' %}"><br>
+                        <span>投资理财</span>
+                    </a>
+
+                </li>
+            </ul>
+        </nav>
+    </div>
+    {#商城头条#}
+    <div class="swiper-container" id="touTiao">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <p style="font-size: 0.05rem">&nbsp;&nbsp;好消息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[特惠]&nbsp;&nbsp;今天购物全场满300-20满500-40</p>
+            </div>
+            <div class="swiper-slide">
+                <p style="font-size: 0.05rem">&nbsp;&nbsp;商城头条&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[公告]&nbsp;&nbsp;华北，华中地区配送延迟</p>
+            </div>
+            <div class="swiper-slide">
+                <p style="font-size: 0.05rem">&nbsp;&nbsp;商城头条&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[新闻]&nbsp;&nbsp;本网站今日与北京市达成战略协议</p>
+            </div>
+        </div>
+    </div>
+
+    {#    活动条目#}
+
+    <div class="touTiaoMenu">
+        <nav>
+            <ul>
+
+                <li>
+                    <a href="#">
+                        <br>
+                        <span style="color: orangered">真的有鱼</span><br>
+                        <span>开年福利篇</span>
+                        <img src="{% static 'img/home/home_huodong/tj.png' %}">
+
+                    </a>
+
+                </li>
+                <li>
+                    <a href="#">
+                        <br>
+                        <span style="color: orangered">囤货过冬</span><br>
+                        <span>让爱早点回家</span>
+                        <img src="{% static 'img/home/home_huodong/tj1.png' %}">
+                    </a>
+
+                </li>
+                <li>
+                    <a href="#">
+                        <br>
+                        <span style="color: orangered">浪漫情人节</span><br>
+                        <span>甜甜蜜蜜</span>
+                        <img src="{% static 'img/home/home_huodong/tj2.png' %}">
+                    </a>
+
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    {#    超市便利#}
+
+    <div style="height: 1.8rem;width: 100%;background-color: #eee;line-height: 1rem;text-align: center">
+        <img style="width: 10rem" src="{% static 'img/home/home_minshop/minshaop.png' %}">
+    </div>
+
+    <div class="minShopMenu">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">
+                        <br>
+                        <img src="{% static 'img/home/home_minshop/activity.jpg' %}">
+                        <span style="font-size: smaller">春节送礼优选</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <br>
+                        <img src="{% static 'img/home/home_minshop/activity1.jpg' %}">
+                        <span style="font-size: smaller">送礼超值选择</span>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <br>
+                        <img src="{% static 'img/home/home_minshop/activity2.jpg' %}">
+                        <span style="font-size: smaller">佳节送礼必选</span>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <br>
+                        <img src="{% static 'img/home/home_minshop/activity3.jpg' %}">
+                        <span style="font-size: smaller">走亲访友佳品</span>
+
+                    </a>
+                </li>
+
+
+            </ul>
+        </nav>
+    </div>
+
+    {#        商场活动#}
+
+    <div style="height: 1rem;width: 10rem;background-color: lightgray;line-height: 1rem;text-align: center;">
+        <p style="font-size: larger"><strong>活&nbsp;&nbsp;动</strong></p>
+    </div>
+
+
+
+
+    <!--首页主显示-->
+    <ul>
+        {% for main_show in main_shows %}
+            <li class="mainInfo">
+                <section>
+                    <h3>
+                        {{ main_show.name }}
+                        <a href="#">
+                            更多>>
+                            <span></span>
+                        </a>
+                    </h3>
+                    <div>
+                        <a href="#">
+                            <img src="{{ main_show.img }}" alt="{{ main_show.name }}">
+                        </a>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="{{ main_show.img1 }}" alt="{{ main_show.longname1 }}">
+                                <div class="description">{{ main_show.longname1 }}</div>
+                                <span>{{ main_show.price1 }}</span>
+                                <s>{{ main_show.marketprice1 }}</s>
+                            </a>
+                            <button>
+                                <span>+</span>
+                            </button>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="{{ main_show.img2 }}" alt="{{ main_show.longname2 }}">
+                                <div class="description">{{ main_show.longname2 }}</div>
+                                <span>{{ main_show.price2 }}</span>
+                                <s>{{ main_show.marketprice2 }}</s>
+                            </a>
+                            <button>
+                                <span>+</span>
+                            </button>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="{{ main_show.img2 }}" alt="{{ main_show.longname2 }}">
+                                <div class="description">{{ main_show.longname2 }}</div>
+                                <span>{{ main_show.price2 }}</span>
+                                <s>{{ main_show.marketprice2 }}</s>
+                            </a>
+                            <button>
+                                <span>+</span>
+                            </button>
+                        </li>
+                    </ul>
+                </section>
+
+            </li>
+        {% endfor %}
+    </ul>
+    <div style="height: 1rem;width: 10rem;background-color: white"></div>
+{% endblock %}

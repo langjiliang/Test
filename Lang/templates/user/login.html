@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block ext_css %}
+    <link rel="stylesheet" href="{% static 'lang/register_login/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="box">
+
+        {#        注册头部#}
+
+        <div class="login_register" style="line-height: 2rem">
+            <span style="font-size: larger;float: right">
+                <a class="btn btn-default" href="{% url 'lang:register' %}" role="button">&nbsp;&nbsp;注&nbsp;&nbsp;册&nbsp;&nbsp;</a>
+            </span>
+        </div>
+
+        <div class="login_header" style="line-height: 4rem;text-align: center">
+            <span style="color: orangered;font-size: 0.8rem;text-align: center">欢&nbsp;迎&nbsp;登&nbsp;录</span>
+        </div>
+        <br>  <br>
+         <br>
+        {#        注册页面#}
+        <div class="login">
+
+            <form action="{% url 'lang:judge_login' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">姓名</label>
+                    <input type="text" name="username" class="form-control input-lg" id="name" placeholder="请输入姓名">
+                </div>
+              <br>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" name="password" class="form-control input-lg" id="password" placeholder="请输入六位数密码">
+                    <br>
+                    <span style="color: red;">{{ info }}</span>
+                </div>
+                <br>
+                <br>
+                  <br>
+                <button type="submit" class="btn btn-default center-block btn-lg">&nbsp;&nbsp;登&nbsp;&nbsp;&nbsp;录&nbsp;&nbsp;</button>
+            </form>
+
+        </div>
+    </div>
+
+
+{% endblock %}
