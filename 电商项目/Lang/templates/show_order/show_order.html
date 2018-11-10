@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load  static %}
+
+{% block ext_css %}
+
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'lang/show_order/css/show_order.css' %}">
+{% endblock %}
+
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'lang/show_order/js/show_order.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div id="header">
+        订&nbsp;&nbsp;单&nbsp;&nbsp;详&nbsp;&nbsp;情
+    </div>
+    <div id="box">
+
+        <section>
+            <menu>
+                <ul>
+                    {% for order_goods in order_goods_lists %}
+                        <li>
+                            <a href="#">
+                                <img src="{{ order_goods.goods.productimg }}">
+                                <div class="shoppingInfo">
+                                    <h6>{{  order_goods.goods.goodsproductlongname }}</h6>
+                                    <p class="detailTag">
+                                        <span>精选</span>
+                                        <span></span>
+                                    </p>
+                                    <p class="unit">{{ order_goods.goods.specifics }}</p>
+                                    <p class="price">
+                                        <span>{{ order_goods.goods.price }}</span>
+                                        <s>{{ order_goods.goods.marketprice }}</s>
+                                    </p>
+                                </div>
+                            </a>
+
+                            <section>
+                                    <button>{{ order_goods.goods_num}}</button>
+                                    <span></span>
+                                    {#                                    通过属性来获取到该商品的信息，然后将该商品的信息传给js中#}
+{#                                    <button only_id="{{ goods_list.id }}" class="add_to_cart"></button>#}
+                                </section>
+                        </li>
+
+                    {% endfor %}
+                    <div style="height: 3rem;width: 100%;"></div>
+
+                </ul>
+            </menu>
+        </section>
+
+    </div>
+
+    <div id="top_footer" style="display: flex">
+        <div style="height: 1.5rem;width: 1.5rem;">
+        </div>
+        <div style="height: 1rem;width: 1.5rem;line-height: 1.5rem">
+        </div>
+        <div style="height: 2rem;width: 4rem;">
+            <span style="line-height: 1.5rem;font-size: larger;color: gray;">合计：</span>
+            <span id="total" style="font-size: larger">￥{{ price }}</span>
+        </div>
+        <div id="place_an_order" style="height: 1.5rem;width: 3rem;background-color: orangered;line-height: 1.5rem;font-size: larger;color: gray;text-align: center;color: white">
+            去&nbsp;支&nbsp;付
+        </div>
+    </div>
+
+{% endblock %}

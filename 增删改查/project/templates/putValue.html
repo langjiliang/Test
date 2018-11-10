@@ -1,0 +1,17 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>展示内容</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/style.css' %}"/>
+    <script type="text/javascript" src="{% static 'myapp/js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'myapp/js/lang.js' %}"></script>
+
+</head>
+<body>
+
+       {{contents}}
+
+</body>
+</html>

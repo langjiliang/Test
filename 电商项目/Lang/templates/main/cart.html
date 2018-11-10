@@ -1,0 +1,108 @@
+{% extends 'base_main.html' %}
+
+{% load static %}
+
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'lang/main/css/cart.css' %}">
+{% endblock %}
+
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'lang/main/js/cart.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+    {{ block.super }}
+    <header style="height: 2rem">
+        <div style="margin: 0 auto;text-align: center">
+           <span style="line-height: 2rem;color: orangered;font-size: 0.8rem;text-shadow:0.2rem 0.2rem 0.1rem lightgray;">
+               购&nbsp;&nbsp;&nbsp;&nbsp;物&nbsp;&nbsp;&nbsp;&nbsp;车
+           </span>
+        </div>
+
+    </header>
+{% endblock %}
+
+
+{% block content %}
+    <div style="height: 2.1rem;width: 10rem"></div>
+
+
+
+    {#对号小球#}
+    {#    <div class="bool"><strong>√</strong></div>#}
+    <div id="cart_box">
+
+        <section>
+
+            <menu>
+                <ul>
+                    {% for cart in carts %}
+                        {% ifnotequal cart.goods_num 0 %}
+                        <li>
+                            <a href="#">
+                                <img src="{{ cart.goods.productimg }}">
+                                <div class="shoppingInfo">
+                                    <h6>{{ cart.goods.productlongname }}</h6>
+                                    <p class="detailTag">
+                                        <span>精选</span>
+                                        <span></span>
+                                    </p>
+                                    <p class="unit">{{ cart.goods.specifics }}</p>
+                                    <p class="price">
+                                        <span>{{ cart.goods.price }}</span>
+                                        <s>{{ cart.goods.marketprice }}</s>
+                                    </p>
+                                </div>
+                            </a>
+
+                            <section>
+                                <button only_id="{{ cart.goods.id }}" class="sub_from_cart">－</button>
+                                <span>{{ cart.goods_num }}</span>
+                                {#                                    通过属性来获取到该商品的信息，然后将该商品的信息传给js中#}
+                                <button only_id="{{ cart.goods.id }}" class="add_to_cart">＋</button>
+
+{#                                是否选择的小括号#}
+                                {% ifequal cart.is_select 1 %}
+                                <div  style="height: 0.8rem;width: 0.8rem;float: right">
+                                    <div class="bool1" cart_id="{{ cart.id }}" style="float: right"><strong>√</strong></div>
+
+                                </div>
+                                {% else %}
+                                     <div  style="height: 0.8rem;width: 0.8rem;float: right">
+                                    <div class="bool1" cart_id="{{ cart.id }}" style="float: right;background-color: white"><strong></strong></div>
+
+                                </div>
+                                {% endifequal %}
+                            </section>
+
+                        </li>
+                    {% endifnotequal %}
+                    {% endfor %}
+                    <div style="height: 3rem;width: 100%;"></div>
+
+                </ul>
+            </menu>
+        </section>
+
+    </div>
+
+
+
+    <div id="top_footer" style="display: flex">
+        <div style="height: 1.5rem;width: 1.5rem;">
+            <div id="all_select" class="bool center-block" style="margin: 0.3rem 0;float: right"><strong>√</strong></div>
+        </div>
+        <div style="height: 1.5rem;width: 1.5rem;line-height: 1.5rem">
+            <p style="font-size: larger;color: gray">&nbsp;&nbsp;全&nbsp;&nbsp;选</p>
+        </div>
+        <div style="height: 1.5rem;width: 4rem;">
+            <span style="line-height: 1.5rem;font-size: larger;color: gray;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;合计：</span>
+            <span id="total">{{ price }}</span>
+        </div>
+        <div id="place_an_order" style="height: 1.5rem;width: 3rem;background-color: orangered;line-height: 1.5rem;font-size: larger;color: gray;text-align: center;color: white">
+            去&nbsp;结&nbsp;算
+        </div>
+    </div>
+{% endblock %}

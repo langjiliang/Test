@@ -1,0 +1,76 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改数据</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/bootstrap.css' %}"/>
+
+
+</head>
+<body>
+
+
+
+        <div style="height: 70px;width: 100%;"></div>
+		<div class="row">
+			<div class="page-header  col-md-3 col-xs-3 col-lg-offset-4 text-center">
+				<h1>请输入要修改的数据</h1>
+			</div>
+		</div>
+		<div style="height: 40px;width: 100%;"></div>
+		<form method="post" action="/changByName/">
+            <div class="row">
+				<div class="form-group col-md-3 col-xs-3 col-lg-offset-4">
+			   		<label for="exampleInputNum">序号</label>
+			   		<input type="text" class="form-control input-lg" id="exampleInputNum" name="num" placeholder="Num">
+				</div>
+			</div>
+		    <div class="row">
+				<div class="form-group col-md-3 col-xs-3 col-lg-offset-4">
+			   		<label for="exampleInputName">手机名称</label>
+			   		<input type="text" class="form-control input-lg" id="exampleInputName" name="name" placeholder="Name">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-3 col-xs-3 col-lg-offset-4">
+			   		<label for="exampleInputPrice">手机价格</label>
+			   		<input type="text" class="form-control input-lg" id="exampleInputPrice" name="price" placeholder="Price">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-3 col-xs-3 col-lg-offset-4">
+			   		<label for="exampleInputContent">手机描述</label>
+			   		<input type="text" class="form-control input-lg" id="exampleInputContent" name="content" placeholder="Content">
+				</div>
+			</div>
+		  <button type="submit" class="btn btn-primary col-md-1 col-xs-1 col-lg-offset-5">提交</button>
+		</form>
+
+
+    <div class="page-header">
+        <h1 class="text-center"><strong>所有手机数据</strong></h1>
+    </div>
+    <div style="width: 600px;margin: 0 auto">
+        <table class="table table-striped">
+            <tr>
+                <th>序号</th>
+                <th>手机名称</th>
+                <th>手机价格</th>
+                <th>手机信息</th>
+            </tr>
+            {% for phone in phones %}
+            <tr>
+                <td>{{phone.pk}}</td>
+                <td>{{phone.name}}</td>
+                <td>{{phone.price}}</td>
+                <td>{{phone.content}}</td>
+            </tr>
+	             {% endfor %}
+        </table>
+    </div>
+    <script type="text/javascript" src="{% static 'myapp/js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'myapp/js/bootstrap.js' %}"></script>
+
+</body>
+</html>

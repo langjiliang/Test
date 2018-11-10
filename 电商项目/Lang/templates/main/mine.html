@@ -1,0 +1,190 @@
+{% extends 'base_main.html' %}
+
+{% load static %}
+
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'lang/main/css/mine.css' %}">
+{% endblock %}
+
+{% block ext_js %}
+    {{ block.super }}
+    {#    <script type="text/javascript" src="{% static 'js/swiper.jquery.js' %}"></script>#}
+    <script type="text/javascript" src="{% static 'lang/main/js/mine.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="top1">
+    </div>
+    <div class="m-userinfo">
+        <div class="m-baseinfo">
+            <a href="information.html">
+                <img src="{% static 'img/mine/top/top2.jpg' %}">
+            </a>
+            {#                显示的是用户名#}
+
+            {#                未登陆时用户显示的内容#}
+            {% ifequal flag 1 %}
+                {#登陆后用户显示的内容#}
+                <em class="s-name" style="font-size: large">({{ username }})<span class="vip1"></span></em>
+                <div class="s-prestige am-btn am-round">
+                    会员福利
+                </div>
+
+            {% else %}
+                <em class="s-name" style="font-size: large">(用户未登陆)<span class="vip1"></span></em>
+                <div class="s-prestige am-btn am-round">
+                    <span id="denglu">点击登录</span>
+                </div>
+            {% endifequal %}
+
+
+        </div>
+        <div class="m-right">
+            <div class="m-new">
+                <a href="news.html"><i class="am-icon-bell-o"></i>&nbsp;&nbsp;</a>
+            </div>
+            <div class="m-address">
+                <a href="address.html" class="i-trigger">我的收货地址</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="top3">
+
+    </div>
+
+    <div style="height: 1rem;"></div>
+    {#    红包展示#}
+
+
+    <div class="money">
+        <nav>
+            <ul>
+                <li>
+                    <img style="border-radius: 50%;" src="{% static 'img/mine/money/bonus.png' %}"><br>
+                    <span style="font-size: large">红包</span>
+
+                </li>
+                <li>
+                    <img src="{% static 'img/mine/money/coupon.png' %}"><br>
+                    <span style="font-size: large">优惠券</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/mine/money/wallet.png' %}"><br>
+                    <span style="font-size: large">钱包</span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+    {#    我的订单#}
+    <div style="height: 0.5rem;width: 100%;line-height: 1rem;">
+        <span style="float: left;font-size: larger;color: darkgray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我的订单</span>
+        <span style="float: right;color: darkgray">全部订单&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+    <hr style="width: 8rem;">
+
+    <div class="order">
+        <nav>
+            <ul>
+
+                <li>
+                    <img src="{% static 'img/mine/order/pay.png' %}"><br>
+                    <span>待付款</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/mine/order/send.png' %}"><br>
+                    <span>代发货</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/mine/order/receive.png' %}"><br>
+                    <span>待收货</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/mine/order/comment.png' %}"><br>
+                    <span>待评价</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/mine/order/refund.png' %}"><br>
+                    <span>退换货</span>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+
+    {#    我的收藏#}
+    <div style="height: 0.5rem;width: 100%;line-height: 1rem;">
+        <span style="float: left;font-size: larger;color: darkgray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我的收藏</span>
+        {#        <span style="float: right;color: darkgray">全部收藏&nbsp;&nbsp;&nbsp;&nbsp;</span>#}
+    </div>
+    <hr style="width: 8rem;">
+
+    <div class="save">
+        <nav>
+            <ul>
+                <li>
+                    <img src="{% static 'img/mine/save/save1.jpg' %}"><br>
+                    <span style="color: gray;">最爱橙子</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/mine/save/save2.jpg' %}"><br>
+                    <span style="color: gray;">最爱巧克力</span></li>
+                <li>
+                    <img src="{% static 'img/mine/save/save3.jpg' %}"><br>
+                    <span style="color: gray;">最爱威化饼</span></li>
+                <li>
+                    <img src="{% static 'img/mine/save/save4.jpg' %}"><br>
+                    <span style="color: gray;">最爱甜点</span></li>
+            </ul>
+        </nav>
+    </div>
+
+    {#    经常浏览#}
+
+    <div style="height: 0.5rem;width: 100%;line-height: 1rem;">
+        <span style="float: left;font-size: larger;color: darkgray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;经常浏览</span>
+        {#        <span style="float: right;color: darkgray">全部收藏&nbsp;&nbsp;&nbsp;&nbsp;</span>#}
+    </div>
+    <hr style="width: 8rem;">
+
+    <div class="history">
+        <nav>
+            <ul>
+                <li>
+                    <img src="{% static 'img/mine/histoty/histoty1.jpg' %}"><br>
+                    <span style="color: gray;">护肤常用</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/mine/histoty/histoty2.jpg' %}"><br>
+                    <span style="color: gray;">家中必备</span></li>
+                <li>
+                    <img src="{% static 'img/mine/histoty/histoty3.jpg' %}"><br>
+                    <span style="color: gray;">零食小吃</span></li>
+                {#                <li>#}
+                {#                    <img src="{% static 'img/mine/histoty/histoty4.jpg' %}"><br>#}
+                {#                    <span style="color: gray;">最爱甜点</span></li>#}
+            </ul>
+        </nav>
+    </div>
+
+    {#    点击退出#}
+
+    <div class="m-userinfo" style="background-color: white">
+        <div class="m-baseinfo">
+            <div class="s-prestige am-btn am-round center-block" style="height: 1rem;width: 4rem;line-height: 1rem">
+                <span id="sign_out" style="font-size: larger;color: orangered">退出登陆</span>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <div style="height: 2rem;width: 10rem;"></div>
+{% endblock %}

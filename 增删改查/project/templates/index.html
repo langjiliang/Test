@@ -1,0 +1,47 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索框</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/bootstrap.css' %}"/>
+
+
+</head>
+<body>
+
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="/add/" class="btn btn-info">增加数据</a></li>
+		        <li><a href="/dele/" class="btn btn-info">删除数据</a></li>
+		        <li><a href="/change/" class="btn btn-info">修改数据</a></li>
+				  <li><a href="/all/1/" class="btn btn-info">所有数据</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+
+		<img src="{% static 'myapp/img/baidu.jpg' %}" class="img-responsive center-block" alt="Responsive image">
+
+		<div class="row">
+			<form action="/putValue/" method="post">
+				  <div class="col-lg-5 col-md-offset-4">
+				    <div class="input-group">
+				      <input type="text" class="form-control" style="height: 60px;" placeholder="Search for..." name="phoneName">
+				      <span class="input-group-btn">
+				        <button class="btn btn-primary" style="height: 60px;" type="submit">百度一下</button>
+				      </span>
+				    </div><!-- /input-group -->
+				  </div><!-- /.col-lg-6 -->
+			</form>
+		</div>
+
+    <script type="text/javascript" src="{% static 'myapp/js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'myapp/js/bootstrap.js' %}"></script>
+
+</body>
+</html>

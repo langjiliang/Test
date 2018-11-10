@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'lang/main/css/main.css' %}">
+{% endblock %}
+
+{#{% block header %}#}
+{#    <header></header>#}
+{#{% endblock %}#}
+
+{% block footer %}
+    <footer>
+        <a href="{% url 'lang:home' %}" class="home">
+            <dl>
+                <dt>
+                    <span></span>
+                </dt>
+                <dd>首页</dd>
+            </dl>
+        </a>
+        <a href="{% url 'lang:market' %}" class="market">
+            <dl>
+                <dt>
+                    <span></span>
+                </dt>
+                <dd>闪购</dd>
+            </dl>
+        </a>
+        <a href="{% url 'lang:cart' %}" class="cart">
+            <dl>
+                <dt>
+                    <span></span>
+                </dt>
+                <dd>购物车</dd>
+            </dl>
+        </a>
+        <a href="{% url 'lang:mine' %}" class="mine_icon">
+            <dl>
+                <dt>
+                    <span></span>
+                </dt>
+                <dd>我的</dd>
+            </dl>
+        </a>
+    </footer>
+{% endblock %}
